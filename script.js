@@ -81,7 +81,7 @@ function calculateWinner() {
     const pointerAngle = (1.5 * Math.PI - normalizedAngle + 2 * Math.PI) % (2 * Math.PI);
     const winnerIndex = Math.floor(pointerAngle / arcSize);
 
-    resultDiv.textContent = `🎉 ¡Resultado: ${options[winnerIndex]}!`;
+    resultDiv.textContent = `🎉 ¡Felicidades Ganastes un ${options[winnerIndex]}!`;
 }
 
 drawRoulette();
