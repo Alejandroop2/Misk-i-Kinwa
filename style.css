@@ -8,8 +8,11 @@
 }
 
 body {
-    background-color: #0f172a;
-    color: #f8fafc;
+    /* Fondo color crema cálido inspirado en la repostería artesanal y la quinua */
+    background-color: #fcf8f2;
+    background-image: radial-gradient(#e6d5be 0.75px, transparent 0.75px);
+    background-size: 16px 16px;
+    color: #3b2f2f;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -34,11 +37,28 @@ body {
 }
 
 .card {
-    background-color: #1e293b;
+    /* Tarjeta con tono pergamino/crema claro y borde tipo miel/turrón */
+    background-color: #fffaf5;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-    border: 1px solid #334155;
+    box-shadow: 0 10px 25px -5px rgba(139, 94, 60, 0.1), 0 8px 10px -6px rgba(139, 94, 60, 0.1);
+    border: 2px solid #e2c4a0;
+    position: relative;
+}
+
+/* Decoración superior estilo turrón de quinua (líneas de miel y semillas) */
+.card::before {
+    content: '✨ Misk’i Kinwa • Artesanal ✨';
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #b45309;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed #d9b38c;
+    padding-bottom: 8px;
 }
 
 .wheel-section {
@@ -53,30 +73,33 @@ body {
     width: 320px;
     height: 320px;
     margin: 20px 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px #f3e5d0, 0 8px 20px rgba(0,0,0,0.15);
 }
 
 #wheelCanvas {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
 }
 
 .wheel-pointer {
     position: absolute;
-    top: -10px;
+    top: -18px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 25px solid #f43f5e;
+    border-top: 28px solid #d97706; /* Tono miel tostada */
     z-index: 10;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .btn-spin {
-    background: linear-gradient(135deg, #f43f5e, #e11d48);
+    background: linear-gradient(135deg, #d97706, #b45309);
     color: white;
     border: none;
     padding: 14px 32px;
@@ -85,13 +108,13 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 14px rgba(244, 63, 94, 0.4);
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
     margin-top: 10px;
 }
 
 .btn-spin:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(244, 63, 94, 0.6);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
 }
 
 .btn-spin:disabled {
@@ -105,13 +128,13 @@ body {
     margin-top: 15px;
     min-height: 33px;
     text-align: center;
-    color: #38bdf8;
+    color: #9a3412;
 }
 
 h2 {
     font-size: 20px;
     margin-bottom: 16px;
-    color: #f1f5f9;
+    color: #451a03;
 }
 
 .add-form {
@@ -122,23 +145,23 @@ h2 {
 
 .add-form input[type="text"] {
     flex: 1;
-    background-color: #0f172a;
-    border: 1px solid #475569;
+    background-color: #ffffff;
+    border: 1px solid #d9b38c;
     padding: 10px 14px;
     border-radius: 8px;
-    color: white;
+    color: #3b2f2f;
     font-size: 14px;
 }
 
 .add-form input[type="text"]:focus {
     outline: none;
-    border-color: #38bdf8;
+    border-color: #d97706;
 }
 
 .add-form input[type="color"] {
     appearance: none;
     -webkit-appearance: none;
-    border: 1px solid #475569;
+    border: 1px solid #d9b38c;
     width: 42px;
     height: 42px;
     border-radius: 8px;
@@ -157,7 +180,7 @@ h2 {
 }
 
 .btn-add {
-    background-color: #0ea5e9;
+    background-color: #d97706;
     color: white;
     border: none;
     padding: 0 16px;
@@ -168,7 +191,7 @@ h2 {
 }
 
 .btn-add:hover {
-    background-color: #0284c7;
+    background-color: #b45309;
 }
 
 .options-list {
@@ -179,4 +202,75 @@ h2 {
     gap: 8px;
     margin-bottom: 20px;
     padding-right: 4px;
+}
+
+.options-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.options-list::-webkit-scrollbar-thumb {
+    background-color: #d9b38c;
+    border-radius: 3px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #eedfcb;
+}
+
+.option-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #3b2f2f;
+}
+
+.color-badge {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: #a8a29e;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.btn-delete:hover {
+    color: #dc2626;
+    background-color: rgba(220, 38, 38, 0.1);
+}
+.history-section h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #78350f;
+}
+
+.history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.history-chip {
+    background-color: #ffffff;
+    border: 1px solid #eedfcb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #78350f;
+    font-weight: 500;
 }
