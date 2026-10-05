@@ -8,10 +8,15 @@
 }
 
 body {
-    /* Fondo crema cálido con un toque litúrgico y artesanal */
-    background-color: #fdfaf6;
-    background-image: radial-gradient(#d8bfe0 0.75px, transparent 0.75px);
-    background-size: 18px 18px;
+    /* Fondo con franjas sutiles moradas (estilo hábito nazareno) y crema */
+    background-color: #f6f0ff;
+    background-image: 
+        linear-gradient(45deg, rgba(88, 28, 135, 0.04) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(88, 28, 135, 0.04) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(88, 28, 135, 0.04) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(88, 28, 135, 0.04) 75%);
+    background-size: 30px 30px;
+    background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
     color: #2e1a3d;
     min-height: 100vh;
     display: flex;
@@ -37,28 +42,30 @@ body {
 }
 
 .card {
-    /* Tarjeta crema con un borde elegante color morado Nazareno */
-    background-color: #fffefb;
-    border-radius: 16px;
+    /* Tarjeta con bordes y estilo de caja de turrón morada */
+    background-color: #ffffff;
+    border-radius: 20px;
     padding: 24px;
-    box-shadow: 0 10px 25px -5px rgba(88, 28, 135, 0.15), 0 8px 10px -6px rgba(88, 28, 135, 0.1);
-    border: 2px solid #581c87;
+    box-shadow: 0 12px 30px -5px rgba(88, 28, 135, 0.2);
+    border: 3px solid #581c87;
     position: relative;
 }
 
-/* Sello superior conmemorativo del Señor de los Milagros y el turrón */
+/* Cinta decorativa superior simulando el manto/hábito morado */
 .card::before {
-    content: '💜 Misk’i Kinwa • Señor de los Milagros 💜';
+    content: '💜 Señor de los Milagros • Misk’i Kinwa 💜';
     display: block;
+    background: linear-gradient(135deg, #581c87, #3b0764);
+    color: white;
     text-align: center;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #581c87;
-    margin-bottom: 12px;
-    border-bottom: 1px dashed #d8bfe0;
-    padding-bottom: 8px;
+    letter-spacing: 1.5px;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .wheel-section {
@@ -74,7 +81,7 @@ body {
     height: 320px;
     margin: 20px 0;
     border-radius: 50%;
-    box-shadow: 0 0 0 8px #f3e8ff, 0 8px 20px rgba(88,28,135,0.2);
+    box-shadow: 0 0 0 10px #f3e8ff, 0 8px 25px rgba(88,28,135,0.25);
 }
 
 #wheelCanvas {
@@ -86,20 +93,20 @@ body {
 
 .wheel-pointer {
     position: absolute;
-    top: -18px;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 28px solid #581c87; /* Indicador morado nazareno */
+    border-top: 30px solid #581c87;
     z-index: 10;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
 .btn-spin {
-    background: linear-gradient(135deg, #581c87, #3b0764);
+    background: linear-gradient(135deg, #581c87, #7e22ce);
     color: white;
     border: none;
     padding: 14px 32px;
@@ -108,7 +115,7 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 14px rgba(88, 28, 135, 0.4);
+    box-shadow: 0 4px 15px rgba(88, 28, 135, 0.4);
     margin-top: 10px;
 }
 
@@ -145,7 +152,7 @@ h2 {
 
 .add-form input[type="text"] {
     flex: 1;
-    background-color: #ffffff;
+    background-color: #faf5ff;
     border: 1px solid #d8bfe0;
     padding: 10px 14px;
     border-radius: 8px;
@@ -180,7 +187,7 @@ h2 {
 }
 
 .btn-add {
-    background-color: #6b21a8;
+    background-color: #7e22ce;
     color: white;
     border: none;
     padding: 0 16px;
@@ -202,54 +209,4 @@ h2 {
     gap: 8px;
     margin-bottom: 20px;
     padding-right: 4px;
-}
-
-.options-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.options-list::-webkit-scrollbar-thumb {
-    background-color: #d8bfe0;
-    border-radius: 3px;
-}
-
-.option-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #ffffff;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #f3e8ff;
-}
-
-.option-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #2e1a3d;
-}
-
-.color-badge {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.btn-delete {
-    background: none;
-    border: none;
-    color: #9ca3af;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 4px;
-    border-radius: 4px;
-    transition: color 0.2s, background 0.2s;
-}
-
-.btn-delete:hover {
-    color: #dc2626;
-    background-color: rgba(220, 38, 38, 0.1);
 }
