@@ -8,11 +8,11 @@
 }
 
 body {
-    /* Fondo color crema cálido inspirado en la repostería artesanal y la quinua */
-    background-color: #fcf8f2;
-    background-image: radial-gradient(#e6d5be 0.75px, transparent 0.75px);
-    background-size: 16px 16px;
-    color: #3b2f2f;
+    /* Fondo crema cálido con un toque litúrgico y artesanal */
+    background-color: #fdfaf6;
+    background-image: radial-gradient(#d8bfe0 0.75px, transparent 0.75px);
+    background-size: 18px 18px;
+    color: #2e1a3d;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -37,27 +37,27 @@ body {
 }
 
 .card {
-    /* Tarjeta con tono pergamino/crema claro y borde tipo miel/turrón */
-    background-color: #fffaf5;
+    /* Tarjeta crema con un borde elegante color morado Nazareno */
+    background-color: #fffefb;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 10px 25px -5px rgba(139, 94, 60, 0.1), 0 8px 10px -6px rgba(139, 94, 60, 0.1);
-    border: 2px solid #e2c4a0;
+    box-shadow: 0 10px 25px -5px rgba(88, 28, 135, 0.15), 0 8px 10px -6px rgba(88, 28, 135, 0.1);
+    border: 2px solid #581c87;
     position: relative;
 }
 
-/* Decoración superior estilo turrón de quinua (líneas de miel y semillas) */
+/* Sello superior conmemorativo del Señor de los Milagros y el turrón */
 .card::before {
-    content: '✨ Misk’i Kinwa • Artesanal ✨';
+    content: '💜 Misk’i Kinwa • Señor de los Milagros 💜';
     display: block;
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #b45309;
+    letter-spacing: 1.2px;
+    color: #581c87;
     margin-bottom: 12px;
-    border-bottom: 1px dashed #d9b38c;
+    border-bottom: 1px dashed #d8bfe0;
     padding-bottom: 8px;
 }
 
@@ -74,7 +74,7 @@ body {
     height: 320px;
     margin: 20px 0;
     border-radius: 50%;
-    box-shadow: 0 0 0 8px #f3e5d0, 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 0 0 8px #f3e8ff, 0 8px 20px rgba(88,28,135,0.2);
 }
 
 #wheelCanvas {
@@ -93,13 +93,13 @@ body {
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 28px solid #d97706; /* Tono miel tostada */
+    border-top: 28px solid #581c87; /* Indicador morado nazareno */
     z-index: 10;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .btn-spin {
-    background: linear-gradient(135deg, #d97706, #b45309);
+    background: linear-gradient(135deg, #581c87, #3b0764);
     color: white;
     border: none;
     padding: 14px 32px;
@@ -108,13 +108,13 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+    box-shadow: 0 4px 14px rgba(88, 28, 135, 0.4);
     margin-top: 10px;
 }
 
 .btn-spin:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+    box-shadow: 0 6px 20px rgba(88, 28, 135, 0.6);
 }
 
 .btn-spin:disabled {
@@ -128,13 +128,13 @@ body {
     margin-top: 15px;
     min-height: 33px;
     text-align: center;
-    color: #9a3412;
+    color: #6b21a8;
 }
 
 h2 {
     font-size: 20px;
     margin-bottom: 16px;
-    color: #451a03;
+    color: #3b0764;
 }
 
 .add-form {
@@ -146,22 +146,22 @@ h2 {
 .add-form input[type="text"] {
     flex: 1;
     background-color: #ffffff;
-    border: 1px solid #d9b38c;
+    border: 1px solid #d8bfe0;
     padding: 10px 14px;
     border-radius: 8px;
-    color: #3b2f2f;
+    color: #2e1a3d;
     font-size: 14px;
 }
 
 .add-form input[type="text"]:focus {
     outline: none;
-    border-color: #d97706;
+    border-color: #581c87;
 }
 
 .add-form input[type="color"] {
     appearance: none;
     -webkit-appearance: none;
-    border: 1px solid #d9b38c;
+    border: 1px solid #d8bfe0;
     width: 42px;
     height: 42px;
     border-radius: 8px;
@@ -180,7 +180,7 @@ h2 {
 }
 
 .btn-add {
-    background-color: #d97706;
+    background-color: #6b21a8;
     color: white;
     border: none;
     padding: 0 16px;
@@ -191,7 +191,7 @@ h2 {
 }
 
 .btn-add:hover {
-    background-color: #b45309;
+    background-color: #581c87;
 }
 
 .options-list {
@@ -209,7 +209,7 @@ h2 {
 }
 
 .options-list::-webkit-scrollbar-thumb {
-    background-color: #d9b38c;
+    background-color: #d8bfe0;
     border-radius: 3px;
 }
 
@@ -220,14 +220,14 @@ h2 {
     background-color: #ffffff;
     padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid #eedfcb;
+    border: 1px solid #f3e8ff;
 }
 
 .option-info {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #3b2f2f;
+    color: #2e1a3d;
 }
 
 .color-badge {
@@ -240,7 +240,7 @@ h2 {
 .btn-delete {
     background: none;
     border: none;
-    color: #a8a29e;
+    color: #9ca3af;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -252,25 +252,4 @@ h2 {
 .btn-delete:hover {
     color: #dc2626;
     background-color: rgba(220, 38, 38, 0.1);
-}
-.history-section h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #78350f;
-}
-
-.history-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.history-chip {
-    background-color: #ffffff;
-    border: 1px solid #eedfcb;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    color: #78350f;
-    font-weight: 500;
 }
