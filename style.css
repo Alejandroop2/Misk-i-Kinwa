@@ -6,8 +6,7 @@
 }
 
 body {
-    /* Carga la imagen guardada directamente en tu repositorio */
-    background: url('fondo.jpg') no-repeat center center fixed;
+    background: url('https://i.imgur.com/8QG3X8r.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     display: flex;
