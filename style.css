@@ -6,13 +6,13 @@
 }
 
 body {
-    /* IMAGEN ÚNICA DE FONDO EN TODA LA PANTALLA */
-    background-image: url('TURRON.jpg'); /* Asegúrate de que coincida con el nombre exacto de tu archivo en GitHub */
+    /* Enlace directo a tu imagen en Kommodo */
+    background-image: url('https://kommodo.ai/i/AiLRsiPZUrUKBxTMvcz4');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: #120924; /* Color de respaldo si la foto tarda en cargar */
+    background-color: #120924;
     
     color: #ffffff;
     display: flex;
@@ -21,6 +21,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
 
 /* --- TARJETA AZUL Y RULETA CENTRADA --- */
 .main-container {
