@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const spinBtn = document.getElementById('spinBtn');
 const resultDiv = document.getElementById('result');
 
-// Configura aquí tus opciones directamente en el código:
+// Configura aquí tus opciones fijas
 let options = [
   { label: 'Opción 1', color: '#f43f5e' },
   { label: 'Opción 2', color: '#06b6d4' },
@@ -16,7 +16,7 @@ let options = [
 let currentRotation = 0;
 let isSpinning = false;
 
-// Dibujar la ruleta en el Canvas
+// Dibujar la ruleta
 function drawWheel() {
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
@@ -65,7 +65,7 @@ spinBtn.addEventListener('click', () => {
 
   const numOptions = options.length;
   const randomExtraDegrees = Math.floor(Math.random() * 360);
-  const totalDegrees = 1800 + randomExtraDegrees; // Mínimo 5 vueltas
+  const totalDegrees = 1800 + randomExtraDegrees;
   currentRotation += totalDegrees;
 
   canvas.style.transform = `rotate(${currentRotation}deg)`;
@@ -82,5 +82,5 @@ spinBtn.addEventListener('click', () => {
   }, 4000);
 });
 
-// Dibujar la ruleta al cargar
+// Inicializar la ruleta de inmediato
 drawWheel();
