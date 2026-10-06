@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Misk'i Kinwa</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misk'i Kinwa</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="wheel-card">
-    <h1 class="main-title">💜 Misk'i Kinwa</h1>
+    <div class="main-container">
+        <h1>💜 Misk'i Kinwa</h1>
+        
+        <div class="roulette-container">
+            <div class="pointer">▼</div>
+            <canvas id="rouletteCanvas" width="400" height="400"></canvas>
+        </div>
 
-    <div class="wheel-wrapper">
-      <div class="pointer"></div>
-      <canvas id="wheelCanvas" width="400" height="400"></canvas>
+        <br>
+        <button id="spinBtn">GIRAR RULETA</button>
+
+        <div id="result"></div>
     </div>
 
-    <button class="btn-spin" id="spinBtn">Girar Ruleta</button>
-    <div class="result-box" id="result"></div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,86 +1,88 @@
-const canvas = document.getElementById('wheelCanvas');
+const canvas = document.getElementById('rouletteCanvas');
 const ctx = canvas.getContext('2d');
 const spinBtn = document.getElementById('spinBtn');
 const resultDiv = document.getElementById('result');
 
-// Configura aquí tus opciones fijas
-let options = [
-  { label: 'Opción 1', color: '#f43f5e' },
-  { label: 'Opción 2', color: '#06b6d4' },
-  { label: 'Opción 3', color: '#10b981' },
-  { label: 'Opción 4', color: '#f59e0b' },
-  { label: 'Opción 5', color: '#8b5cf6' },
-  { label: 'Opción 6', color: '#ec4899' }
-];
+// Opciones de la ruleta (puedes cambiar los nombres después)
+const options = ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4', 'Opción 5', 'Opción 6'];
+const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22'];
 
-let currentRotation = 0;
+const numOptions = options.length;
+const arcSize = (2 * Math.PI) / numOptions;
+let currentAngle = 0;
 let isSpinning = false;
 
 // Dibujar la ruleta
-function drawWheel() {
-  const centerX = canvas.width / 2;
-  const centerY = canvas.height / 2;
-  const radius = canvas.width / 2 - 10;
-  const numOptions = options.length;
+function drawRoulette() {
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = canvas.width / 2;
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (numOptions === 0) return;
+    for (let i = 0; i < numOptions; i++) {
+        const startAngle = currentAngle + i * arcSize;
+        const endAngle = startAngle + arcSize;
 
-  const arcSize = (2 * Math.PI) / numOptions;
+        // Sector
+        ctx.beginPath();
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        ctx.fill();
+        ctx.stroke();
 
-  options.forEach((opt, index) => {
-    const startAngle = index * arcSize - Math.PI / 2;
-    const endAngle = startAngle + arcSize;
-
-    // Dibujar Sector
-    ctx.beginPath();
-    ctx.moveTo(centerX, centerY);
-    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-    ctx.fillStyle = opt.color;
-    ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#ffffff';
-    ctx.stroke();
-
-    // Dibujar Texto
-    ctx.save();
-    ctx.translate(centerX, centerY);
-    ctx.rotate(startAngle + arcSize / 2);
-    ctx.textAlign = 'right';
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 16px Outfit, sans-serif';
-    ctx.fillText(opt.label, radius - 25, 6);
-    ctx.restore();
-  });
+        // Texto
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(startAngle + arcSize / 2);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 16px Arial';
+        ctx.fillText(options[i], radius - 20, 5);
+        ctx.restore();
+    }
 }
 
-// Girar la Ruleta
-spinBtn.addEventListener('click', () => {
-  if (isSpinning || options.length === 0) return;
+// Girar la ruleta
+function spin() {
+    if (isSpinning) return;
+    isSpinning = true;
+    resultDiv.textContent = '';
 
-  isSpinning = true;
-  spinBtn.disabled = true;
-  resultDiv.textContent = '';
+    const spinAngle = Math.random() * 2000 + 3000; 
+    const duration = 4000; 
+    const startTime = performance.now();
 
-  const numOptions = options.length;
-  const randomExtraDegrees = Math.floor(Math.random() * 360);
-  const totalDegrees = 1800 + randomExtraDegrees;
-  currentRotation += totalDegrees;
+    function animate(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
 
-  canvas.style.transform = `rotate(${currentRotation}deg)`;
+        // Desaceleración
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        currentAngle = (spinAngle * easeOut * Math.PI) / 180;
 
-  setTimeout(() => {
-    isSpinning = false;
-    spinBtn.disabled = false;
+        drawRoulette();
 
-    const actualDegrees = currentRotation % 360;
-    const winningIndex = Math.floor((360 - (actualDegrees % 360)) / (360 / numOptions)) % numOptions;
-    const winner = options[winningIndex].label;
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            isSpinning = false;
+            calculateWinner();
+        }
+    }
 
-    resultDiv.textContent = `🎉 ¡Ganó: ${winner}!`;
-  }, 4000);
-});
+    requestAnimationFrame(animate);
+}
 
-// Inicializar la ruleta de inmediato
-drawWheel();
+// Calcular ganador
+function calculateWinner() {
+    const normalizedAngle = (currentAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+    const pointerAngle = (1.5 * Math.PI - normalizedAngle + 2 * Math.PI) % (2 * Math.PI);
+    const winnerIndex = Math.floor(pointerAngle / arcSize);
+
+    resultDiv.textContent = `🎉 ¡Felicidades Ganastes un ${options[winnerIndex]}!`;
+}
+
+drawRoulette();
+spinBtn.addEventListener('click', spin);
