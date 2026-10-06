@@ -6,8 +6,8 @@
 }
 
 body {
-    /* Imagen de fondo extendida para cubrir toda la pantalla */
-    background: url('https://elpopular.cronosmedia.glr.pe/original/2022/10/08/6341d5bc2be9491dc519eab0.jpg') no-repeat center center fixed;
+    /* Carga la imagen guardada directamente en tu repositorio */
+    background: url('fondo.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     display: flex;
@@ -18,14 +18,13 @@ body {
 
 .main-container {
     text-align: center;
-    /* Fondo oscuro semi-transparente similar a la imagen de muestra */
     background: rgba(22, 33, 62, 0.92);
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     max-width: 440px;
     width: 90%;
-    backdrop-filter: blur(4px); /* Suaviza ligeramente la imagen bajo el panel */
+    backdrop-filter: blur(3px);
 }
 
 h1 {
