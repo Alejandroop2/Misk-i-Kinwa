@@ -7,7 +7,7 @@
 
 body {
     /* FONDO DE UNA SOLA IMAGEN COMPLETA */
-    background-image: url('https://kommodo.ai/i/AiLRsiPZUrUKBxTMvcz4'); /* Cambia esto por el nombre exacto de tu archivo en GitHub */
+    background-image: url('https://elpopular.cronosmedia.glr.pe/original/2022/10/08/6341d5bc2be9491dc519eab0.jpg'); /* Cambia esto por el nombre exacto de tu archivo en GitHub */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
