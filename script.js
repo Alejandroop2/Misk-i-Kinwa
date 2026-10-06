@@ -3,14 +3,8 @@ const ctx = canvas.getContext('2d');
 const spinBtn = document.getElementById('spinBtn');
 const resultDiv = document.getElementById('result');
 
-// Opciones intercaladas para que no queden juntas
-const options = [
-    'Café gratis',
-    'Vuelve a intentarlo',
-    'Nada',
-    'Café gratis',
-    'Vuelve a intentarlo',
-    'Nada'
+// Opciones de la ruleta (puedes cambiar los nombres después)
+const options = ['Gracias por su participación', 'vuelve intentarlo', 'Gracias por su participación', 'Café gratis', 'vuelve intentarlo', 'Café gratis'];
 ];
 
 // Colores vistosos y variados
