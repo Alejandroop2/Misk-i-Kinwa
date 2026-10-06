@@ -4,39 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Misk'i Kinwa</title>
-  <!-- Google Fonts & Lucide Icons -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="main-layout">
-    <!-- RULETA -->
-    <div class="wheel-card">
-      <h1 class="main-title" id="wheelTitle">💜 Misk'i Kinwa</h1>
+  <div class="wheel-card">
+    <h1 class="main-title">💜 Misk'i Kinwa</h1>
 
-      <div class="wheel-wrapper">
-        <div class="pointer"></div>
-        <canvas id="wheelCanvas" width="400" height="400"></canvas>
-      </div>
-
-      <button class="btn-spin" id="spinBtn">Girar Ruleta</button>
-      <div class="result-box" id="result"></div>
+    <div class="wheel-wrapper">
+      <div class="pointer"></div>
+      <canvas id="wheelCanvas" width="400" height="400"></canvas>
     </div>
 
-    <!-- PANEL DE CONTROL / HISTORIAL -->
-    <div class="control-panel">
-      <!-- HISTORIAL -->
-      <div class="history-section">
-        <div class="panel-title" style="font-size: 1rem; margin-bottom: 8px;">
-          <i data-lucide="trophy"></i> Historial de Ganadores
-        </div>
-        <div class="history-list" id="historyList">
-          <span style="font-size:0.85rem; color:#64748b;">Aún no hay ganadores</span>
-        </div>
-      </div>
-    </div>
+    <button class="btn-spin" id="spinBtn">Girar Ruleta</button>
+    <div class="result-box" id="result"></div>
   </div>
 
   <script src="script.js"></script>

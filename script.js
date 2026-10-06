@@ -1,13 +1,9 @@
-// Inicializar Iconos Lucide
-lucide.createIcons();
-
 const canvas = document.getElementById('wheelCanvas');
 const ctx = canvas.getContext('2d');
 const spinBtn = document.getElementById('spinBtn');
 const resultDiv = document.getElementById('result');
-const historyList = document.getElementById('historyList');
 
-// Modifica aquí las opciones fijas de tu ruleta:
+// Configura aquí tus opciones directamente en el código:
 let options = [
   { label: 'Opción 1', color: '#f43f5e' },
   { label: 'Opción 2', color: '#06b6d4' },
@@ -17,7 +13,6 @@ let options = [
   { label: 'Opción 6', color: '#ec4899' }
 ];
 
-let history = [];
 let currentRotation = 0;
 let isSpinning = false;
 
@@ -84,18 +79,8 @@ spinBtn.addEventListener('click', () => {
     const winner = options[winningIndex].label;
 
     resultDiv.textContent = `🎉 ¡Ganó: ${winner}!`;
-
-    // Añadir a historial
-    history.unshift(winner);
-    renderHistory();
   }, 4000);
 });
 
-function renderHistory() {
-  historyList.innerHTML = history.slice(0, 6).map(item => `
-    <span class="history-chip">${item}</span>
-  `).join('');
-}
-
-// Render inicial
+// Dibujar la ruleta al cargar
 drawWheel();
