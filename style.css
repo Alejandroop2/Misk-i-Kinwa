@@ -25,7 +25,7 @@ body {
 /* --- TARJETA CREMA Y RULETA CENTRADA --- */
 .main-container {
     text-align: center;
-    background: rgba(255, 248, 220, 0.95); /* Color crema suave semitransparente */
+    background: rgba(248, 225, 136, 0.95); /* Color crema suave semitransparente */
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra corregida */
