@@ -3,8 +3,17 @@ const ctx = canvas.getContext('2d');
 const spinBtn = document.getElementById('spinBtn');
 const resultDiv = document.getElementById('result');
 
-// Opciones de la ruleta (puedes cambiar los nombres después)
-const options = ['Gracias por su participación', 'vuelve intentarlo', 'Gracias por su participación', 'Café gratis', 'vuelve intentarlo', 'Café gratis'];
+// Opciones intercaladas para que no queden juntas
+const options = [
+    'Café gratis',
+    'Vuelve a intentarlo',
+    'Nada',
+    'Café gratis',
+    'Vuelve a intentarlo',
+    'Nada'
+];
+
+// Colores vistosos y variados
 const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22'];
 
 const numOptions = options.length;
@@ -30,6 +39,8 @@ function drawRoulette() {
         ctx.moveTo(centerX, centerY);
         ctx.arc(centerX, centerY, radius, startAngle, endAngle);
         ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#ffffff';
         ctx.stroke();
 
         // Texto
@@ -38,7 +49,7 @@ function drawRoulette() {
         ctx.rotate(startAngle + arcSize / 2);
         ctx.textAlign = 'right';
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 16px Arial';
+        ctx.font = 'bold 15px Arial';
         ctx.fillText(options[i], radius - 20, 5);
         ctx.restore();
     }
@@ -75,13 +86,20 @@ function spin() {
     requestAnimationFrame(animate);
 }
 
-// Calcular ganador
+// Calcular ganador con mensaje adecuado
 function calculateWinner() {
     const normalizedAngle = (currentAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
     const pointerAngle = (1.5 * Math.PI - normalizedAngle + 2 * Math.PI) % (2 * Math.PI);
     const winnerIndex = Math.floor(pointerAngle / arcSize);
+    const prize = options[winnerIndex];
 
-    resultDiv.textContent = `🎉 ¡Felicidades Ganastes un ${options[winnerIndex]}!`;
+    if (prize === 'Café gratis') {
+        resultDiv.textContent = `🎉 ¡Felicidades, ganaste un Café Gratis! ☕`;
+    } else if (prize === 'Vuelve a intentarlo') {
+        resultDiv.textContent = `🔄 ¡Casi! Vuelve a intentarlo.`;
+    } else {
+        resultDiv.textContent = `😅 Gracias por participar. ¡Sigue intentando!`;
+    }
 }
 
 drawRoulette();
