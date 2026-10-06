@@ -6,7 +6,9 @@
 }
 
 body {
-    background-color: #1a1a2e;
+    /* Imagen de fondo extendida para cubrir toda la pantalla */
+    background: url('https://elpopular.cronosmedia.glr.pe/original/2022/10/08/6341d5bc2be9491dc519eab0.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #ffffff;
     display: flex;
     justify-content: center;
@@ -16,15 +18,21 @@ body {
 
 .main-container {
     text-align: center;
-    background: #16213e;
+    /* Fondo oscuro semi-transparente similar a la imagen de muestra */
+    background: rgba(22, 33, 62, 0.92);
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    max-width: 440px;
+    width: 90%;
+    backdrop-filter: blur(4px); /* Suaviza ligeramente la imagen bajo el panel */
 }
 
 h1 {
     margin-bottom: 20px;
-    color: #e94560;
+    color: #f1f5f9;
+    font-size: 26px;
+    font-weight: bold;
 }
 
 .roulette-container {
@@ -41,30 +49,34 @@ h1 {
     font-size: 30px;
     color: #ff0055;
     z-index: 10;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 #rouletteCanvas {
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    max-width: 100%;
+    height: auto;
 }
 
 button {
-    background-color: #e94560;
+    background: linear-gradient(135deg, #e94560, #d6336c);
     color: white;
     border: none;
-    padding: 12px 30px;
+    padding: 12px 35px;
     font-size: 18px;
     font-weight: bold;
     border-radius: 25px;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
     margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
 }
 
 button:hover {
     background-color: #ff2e63;
     transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
 }
 
 button:active {
@@ -73,7 +85,7 @@ button:active {
 
 #result {
     margin-top: 20px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     color: #00fff5;
     min-height: 30px;
