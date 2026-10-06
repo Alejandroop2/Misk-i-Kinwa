@@ -13,4 +13,17 @@ body {
     
     /* Mantiene el fondo fijo al hacer scroll (opcional) */
     background-attachment: fixed;
+
+    .mi-elemento {
+  opacity: 0.5; /* 50% de opacidad */
+}
+
+.tarjeta {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro al 50% de opacidad */
+  color: #ffffff; /* El texto se mantiene 100% sólido y legible */
+}
+
+.tarjeta {
+  background-color: #00000080; /* El "80" al final representa un ~50% de opacidad en HEX */
+}
 }
