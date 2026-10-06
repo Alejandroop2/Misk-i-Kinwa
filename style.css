@@ -78,15 +78,15 @@ body {
     height: 320px;
     margin: 20px 0;
     border-radius: 50%;
-    background-color: #fbf7ee; /* Color crema clásico de turrón */
-    box-shadow: 0 0 0 12px #581c87, 0 0 0 16px #fbf7ee, 0 10px 30px rgba(88,28,135,0.3);
+    background-color: #690469; /* FONDO BLANCO SÓLIDO PARA EL CANVAS */
+    box-shadow: 0 0 0 10px #3f0281, 0 8px 25px rgba(88,28,135,0.25);
 }
 
 #wheelCanvas {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: #fbf7ee; /* Fondo crema sólido para evitar transparencias */
+    background-color: #580658; /* ASEGURA FONDO BLANCO */
     transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
 }
 
