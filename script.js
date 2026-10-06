@@ -4,7 +4,7 @@ const spinBtn = document.getElementById('spinBtn');
 const resultDiv = document.getElementById('result');
 
 // Opciones de la ruleta (puedes cambiar los nombres después)
-const options = ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4', 'Opción 5', 'Opción 6'];
+const options = ['Gracias por su participación', 'vuelve intentarlo', 'Gracias por su participación', 'Café gratis', 'vuelve intentarlo', 'Café gratis'];
 const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22'];
 
 const numOptions = options.length;
