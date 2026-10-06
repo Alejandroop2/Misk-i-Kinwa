@@ -90,6 +90,11 @@ body {
     transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
 }
 
+.style
+body{
+    background-imagen:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5uBZRhehLu0d9aWiMh9Qf10wNxXWiA12slkoOsVr3RiLzuVWToHZo1XKg&s=10)
+}
+
 .wheel-pointer {
     position: absolute;
     top: -20px;
@@ -281,3 +286,4 @@ h2 {
     color: #581c87;
     font-weight: 500;
 }
+
