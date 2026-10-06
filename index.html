@@ -14,7 +14,7 @@
   <div class="main-layout">
     <!-- RULETA -->
     <div class="wheel-card">
-      <h1 class="editable-title" contenteditable="true" id="wheelTitle" title="Haz clic para editar el título">💜 Misk'i Kinwa</h1>
+      <h1 class="main-title" id="wheelTitle">💜 Misk'i Kinwa</h1>
 
       <div class="wheel-wrapper">
         <div class="pointer"></div>
@@ -25,22 +25,8 @@
       <div class="result-box" id="result"></div>
     </div>
 
-    <!-- PANEL DE CONTROL Y CONFIGURACIÓN -->
+    <!-- PANEL DE CONTROL / HISTORIAL -->
     <div class="control-panel">
-      <div class="panel-title">
-        <i data-lucide="settings"></i> Personalizar Opciones
-      </div>
-
-      <form class="add-form" id="addForm">
-        <input type="text" class="input-text" id="newOptionText" placeholder="Nueva opción..." required />
-        <input type="color" class="input-color" id="newOptionColor" value="#3b82f6" />
-        <button type="submit" class="btn-add">
-          <i data-lucide="plus"></i> Añadir
-        </button>
-      </form>
-
-      <div class="options-list" id="optionsList"></div>
-
       <!-- HISTORIAL -->
       <div class="history-section">
         <div class="panel-title" style="font-size: 1rem; margin-bottom: 8px;">

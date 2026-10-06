@@ -5,13 +5,9 @@ const canvas = document.getElementById('wheelCanvas');
 const ctx = canvas.getContext('2d');
 const spinBtn = document.getElementById('spinBtn');
 const resultDiv = document.getElementById('result');
-const optionsList = document.getElementById('optionsList');
-const addForm = document.getElementById('addForm');
-const newOptionText = document.getElementById('newOptionText');
-const newOptionColor = document.getElementById('newOptionColor');
 const historyList = document.getElementById('historyList');
 
-// Lista por defecto de opciones
+// Modifica aquí las opciones fijas de tu ruleta:
 let options = [
   { label: 'Opción 1', color: '#f43f5e' },
   { label: 'Opción 2', color: '#06b6d4' },
@@ -25,27 +21,6 @@ let history = [];
 let currentRotation = 0;
 let isSpinning = false;
 
-// Renderizar la lista de opciones editable
-function renderOptionsUI() {
-  optionsList.innerHTML = '';
-  options.forEach((opt, index) => {
-    const item = document.createElement('div');
-    item.className = 'option-item';
-    item.innerHTML = `
-      <div class="option-info">
-        <span class="color-badge" style="background-color: ${opt.color}"></span>
-        <span>${opt.label}</span>
-      </div>
-      <button class="btn-delete" onclick="removeOption(${index})" title="Eliminar">
-        <i data-lucide="trash-2" style="width:16px; height:16px;"></i>
-      </button>
-    `;
-    optionsList.appendChild(item);
-  });
-  lucide.createIcons();
-  drawWheel();
-}
-
 // Dibujar la ruleta en el Canvas
 function drawWheel() {
   const centerX = canvas.width / 2;
@@ -55,18 +30,11 @@ function drawWheel() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (numOptions === 0) {
-    ctx.fillStyle = '#ffffff';
-    ctx.textAlign = 'center';
-    ctx.font = '18px Outfit';
-    ctx.fillText('Añade opciones para comenzar', centerX, centerY);
-    return;
-  }
+  if (numOptions === 0) return;
 
   const arcSize = (2 * Math.PI) / numOptions;
 
   options.forEach((opt, index) => {
-    // CORREGIDO: Se agregó el operador de multiplicación (*) que faltaba
     const startAngle = index * arcSize - Math.PI / 2;
     const endAngle = startAngle + arcSize;
 
@@ -91,32 +59,6 @@ function drawWheel() {
     ctx.restore();
   });
 }
-
-// Añadir nueva opción
-addForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const text = newOptionText.value.trim();
-  if (!text) return;
-
-  options.push({ label: text, color: newOptionColor.value });
-  newOptionText.value = '';
-  
-  // Generar un nuevo color aleatorio vistoso para la siguiente opción
-  const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-  newOptionColor.value = randomColor;
-
-  renderOptionsUI();
-});
-
-// Eliminar opción
-window.removeOption = function(index) {
-  if (options.length <= 1) {
-    alert('Debes mantener al menos una opción en la ruleta.');
-    return;
-  }
-  options.splice(index, 1);
-  renderOptionsUI();
-};
 
 // Girar la Ruleta
 spinBtn.addEventListener('click', () => {
@@ -155,5 +97,5 @@ function renderHistory() {
   `).join('');
 }
 
-// Cargar inicial
-renderOptionsUI();
+// Render inicial
+drawWheel();

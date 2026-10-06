@@ -18,41 +18,40 @@ body {
     padding: 20px;
 }
 
-.container {
-    max-width: 900px;
+.main-layout {
+    max-width: 500px;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
-}
-
-.card {
+.wheel-card {
     background-color: #1e293b;
     border-radius: 16px;
     padding: 24px;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
     border: 1px solid #334155;
-}
-
-.wheel-section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
 }
 
-.wheel-container {
+.main-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.wheel-wrapper {
     position: relative;
     width: 320px;
     height: 320px;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 #wheelCanvas {
@@ -61,7 +60,7 @@ body {
     transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
 }
 
-.wheel-pointer {
+.pointer {
     position: absolute;
     top: -10px;
     left: 50%;
@@ -99,7 +98,7 @@ body {
     cursor: not-allowed;
 }
 
-#result {
+.result-box {
     font-size: 22px;
     font-weight: 700;
     margin-top: 15px;
@@ -108,138 +107,27 @@ body {
     color: #38bdf8;
 }
 
-h2 {
-    font-size: 20px;
-    margin-bottom: 16px;
-    color: #f1f5f9;
-}
-
-.add-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.add-form input[type="text"] {
-    flex: 1;
-    background-color: #0f172a;
-    border: 1px solid #475569;
-    padding: 10px 14px;
-    border-radius: 8px;
-    color: white;
-    font-size: 14px;
-}
-
-.add-form input[type="text"]:focus {
-    outline: none;
-    border-color: #38bdf8;
-}
-
-.add-form input[type="color"] {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid #475569;
-    width: 42px;
-    height: 42px;
-    border-radius: 8px;
-    cursor: pointer;
-    background: none;
-    padding: 0;
-}
-
-.add-form input[type="color"]::-webkit-color-swatch-wrapper {
-    padding: 0;
-}
-
-.add-form input[type="color"]::-webkit-color-swatch {
-    border: none;
-    border-radius: 7px;
-}
-
-.btn-add {
-    background-color: #0ea5e9;
-    color: white;
-    border: none;
-    padding: 0 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.btn-add:hover {
-    background-color: #0284c7;
-}
-
-.options-list {
-    max-height: 220px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
-    padding-right: 4px;
-}
-
-.options-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.options-list::-webkit-scrollbar-thumb {
-    background-color: #475569;
-    border-radius: 3px;
-}
-
-.option-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #0f172a;
-    padding: 8px 12px;
-    border-radius: 8px;
+.control-panel {
+    background-color: #1e293b;
+    border-radius: 16px;
+    padding: 20px;
     border: 1px solid #334155;
+    width: 100%;
 }
 
-.option-info {
+.panel-title {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.color-badge {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.btn-delete {
-    background: none;
-    border: none;
+    gap: 8px;
     color: #94a3b8;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 4px;
-    border-radius: 4px;
-    transition: color 0.2s, background 0.2s;
-}
-
-.btn-delete:hover {
-    color: #f43f5e;
-    background-color: rgba(244, 63, 94, 0.1);
-}
-
-.history-section h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #94a3b8;
+    font-weight: 600;
 }
 
 .history-list {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-top: 8px;
 }
 
 .history-chip {
