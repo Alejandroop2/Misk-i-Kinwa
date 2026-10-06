@@ -6,60 +6,32 @@
 }
 
 body {
-    background-color: #120924; /* Color oscuro morado base para el centro */
+    /* IMAGEN ÚNICA DE FONDO EN TODA LA PANTALLA */
+    background-image: url('TURRON.jpg'); /* Asegúrate de que coincida con el nombre exacto de tu archivo en GitHub */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #120924; /* Color de respaldo si la foto tarda en cargar */
+    
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
-    position: relative;
-}
-
-/* --- FONDO CON DOS IMÁGENES FUSIONADAS --- */
-.fondo-fusionado {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1; /* Mantiene las fotos detrás de la ruleta */
-    display: flex;
-}
-
-.imagen-lado {
-    width: 50%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-/* Lado izquierdo: Turrón (usa el nombre exacto de tu archivo en GitHub) */
-.imagen-lado.izquierda {
-    background-image: url('TURRON.jpg'); 
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to right, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
-}
-
-/* Lado derecho: Señor de los Milagros (usa el nombre exacto de tu archivo en GitHub) */
-.imagen-lado.derecha {
-    background-image: url('SENOR DE LOS MILAGROS.jpg'); 
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
 }
 
 /* --- TARJETA AZUL Y RULETA CENTRADA --- */
 .main-container {
-    position: relative;
-    z-index: 2;
     text-align: center;
-    background: rgba(22, 33, 62, 0.92); /* Cuadro azul oscuro semitransparente */
+    background: rgba(22, 33, 62, 0.90); /* Cuadro azul oscuro semitransparente */
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     max-width: 420px;
     width: 90%;
-    margin: 20px auto; /* Asegura el centrado exacto */
+    margin: 20px;
     backdrop-filter: blur(5px);
 }
 
@@ -110,6 +82,10 @@ button {
 
 button:hover {
     transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
 }
 
 #result {

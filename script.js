@@ -1,106 +1,96 @@
-const canvas = document.getElementById('rouletteCanvas');
-const ctx = canvas.getContext('2d');
-const spinBtn = document.getElementById('spinBtn');
-const resultDiv = document.getElementById('result');
-
-// Opciones intercaladas para que no queden juntas
-const options = [
-    'Café gratis',
-    'Vuelve a intentarlo',
-    'Nada',
-    'Café gratis',
-    'Vuelve a intentarlo',
-    'Nada'
-];
-
-// Colores vistosos y variados
-const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22'];
-
-const numOptions = options.length;
-const arcSize = (2 * Math.PI) / numOptions;
-let currentAngle = 0;
-let isSpinning = false;
-
-// Dibujar la ruleta
-function drawRoulette() {
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    const radius = canvas.width / 2;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (let i = 0; i < numOptions; i++) {
-        const startAngle = currentAngle + i * arcSize;
-        const endAngle = startAngle + arcSize;
-
-        // Sector
-        ctx.beginPath();
-        ctx.fillStyle = colors[i % colors.length];
-        ctx.moveTo(centerX, centerY);
-        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-        ctx.fill();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#ffffff';
-        ctx.stroke();
-
-        // Texto
-        ctx.save();
-        ctx.translate(centerX, centerY);
-        ctx.rotate(startAngle + arcSize / 2);
-        ctx.textAlign = 'right';
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 15px Arial';
-        ctx.fillText(options[i], radius - 20, 5);
-        ctx.restore();
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-// Girar la ruleta
-function spin() {
-    if (isSpinning) return;
-    isSpinning = true;
-    resultDiv.textContent = '';
-
-    const spinAngle = Math.random() * 2000 + 3000; 
-    const duration = 4000; 
-    const startTime = performance.now();
-
-    function animate(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-
-        // Desaceleración
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        currentAngle = (spinAngle * easeOut * Math.PI) / 180;
-
-        drawRoulette();
-
-        if (progress < 1) {
-            requestAnimationFrame(animate);
-        } else {
-            isSpinning = false;
-            calculateWinner();
-        }
-    }
-
-    requestAnimationFrame(animate);
+body {
+    /* FONDO DE UNA SOLA IMAGEN COMPLETA */
+    background-image: url('https://kommodo.ai/i/AiLRsiPZUrUKBxTMvcz4'); /* Cambia esto por el nombre exacto de tu archivo en GitHub */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-// Calcular ganador con mensaje adecuado
-function calculateWinner() {
-    const normalizedAngle = (currentAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
-    const pointerAngle = (1.5 * Math.PI - normalizedAngle + 2 * Math.PI) % (2 * Math.PI);
-    const winnerIndex = Math.floor(pointerAngle / arcSize);
-    const prize = options[winnerIndex];
-
-    if (prize === 'Café gratis') {
-        resultDiv.textContent = `🎉 ¡Felicidades, ganaste un Café Gratis! ☕`;
-    } else if (prize === 'Vuelve a intentarlo') {
-        resultDiv.textContent = `🔄 ¡Casi! Vuelve a intentarlo.`;
-    } else {
-        resultDiv.textContent = `😅 Gracias por participar. ¡Sigue intentando!`;
-    }
+/* --- TARJETA AZUL CENTRADA --- */
+.main-container {
+    text-align: center;
+    background: rgba(22, 33, 62, 0.90); /* Fondo azul oscuro semitransparente */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    max-width: 420px;
+    width: 90%;
+    backdrop-filter: blur(5px);
+    margin: 20px;
 }
 
-drawRoulette();
-spinBtn.addEventListener('click', spin);
+h1 {
+    margin-bottom: 20px;
+    color: #f1f5f9;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.roulette-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: #ff0055;
+    z-index: 10;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+#rouletteCanvas {
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    background: linear-gradient(135deg, #e94560, #d6336c);
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00fff5;
+    min-height: 30px;
+}
