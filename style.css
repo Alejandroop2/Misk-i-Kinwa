@@ -6,15 +6,15 @@
 }
 
 body {
-    /* Enlace directo a tu imagen en Kommodo */
+    /* Enlace directo a tu imagen */
     background-image: url('https://elpopular.cronosmedia.glr.pe/original/2022/10/08/6341d5bc2be9491dc519eab0.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color:  #120924;
+    background-color: #120924;
     
-    color: #ffffff;
+    color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,14 +22,13 @@ body {
     overflow-x: hidden;
 }
 
-
-/* --- TARJETA AZUL Y RULETA CENTRADA --- */
+/* --- TARJETA CREMA Y RULETA CENTRADA --- */
 .main-container {
     text-align: center;
-    background: rgb(255, 234, 157); /* Cuadro azul oscuro semitransparente */
+    background: rgba(255, 248, 220, 0.95); /* Color crema suave semitransparente */
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(254, 236, 162, 0.702), 0, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra corregida */
     max-width: 420px;
     width: 90%;
     margin: 20px;
@@ -38,7 +37,7 @@ body {
 
 h1 {
     margin-bottom: 20px;
-    color: #f1f5f9;
+    color: #000000; /* Título Misk'i Kinwa en negro */
     font-size: 26px;
     font-weight: bold;
 }
@@ -93,6 +92,6 @@ button:active {
     margin-top: 20px;
     font-size: 20px;
     font-weight: bold;
-    color: #00fff5;
+    color: #333333; /* Texto de resultado legible en oscuro */
     min-height: 30px;
 }
