@@ -1,29 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    /* Reemplaza la URL por el enlace directo de tu imagen */
-    background-image: url('https://kommodo.ai/i/IogPaa8xBoeJAPUvCWS6');
-    
-    /* Hace que la imagen cubra todo el contenedor/pantalla */
+    background-color: #120924; /* Color oscuro morado base para el centro */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- FONDO CON DOS IMÁGENES FUSIONADAS --- */
+.fondo-fusionado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Mantiene las fotos detrás de la ruleta */
+    display: flex;
+}
+
+.imagen-lado {
+    width: 50%;
+    height: 100%;
     background-size: cover;
-    
-    /* Centra la imagen para que quede fija en el medio */
     background-position: center;
-    
-    /* Evita que la imagen se repita como mosaico */
-    background-repeat: no-repeat;
-    
-    /* Mantiene el fondo fijo al hacer scroll (opcional) */
-    background-attachment: fixed;
-
-    .mi-elemento {
-  opacity: 0.5; /* 50% de opacidad */
 }
 
-.tarjeta {
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro al 50% de opacidad */
-  color: #ffffff; /* El texto se mantiene 100% sólido y legible */
+/* Lado izquierdo: Turrón (usa el nombre exacto de tu archivo en GitHub) */
+.imagen-lado.izquierda {
+    background-image: url('TURRON.jpg'); 
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
 }
 
-.tarjeta {
-  background-color: #00000080; /* El "80" al final representa un ~50% de opacidad en HEX */
+/* Lado derecho: Señor de los Milagros (usa el nombre exacto de tu archivo en GitHub) */
+.imagen-lado.derecha {
+    background-image: url('SENOR DE LOS MILAGROS.jpg'); 
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
 }
+
+/* --- TARJETA AZUL Y RULETA CENTRADA --- */
+.main-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background: rgba(22, 33, 62, 0.92); /* Cuadro azul oscuro semitransparente */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    max-width: 420px;
+    width: 90%;
+    margin: 20px auto; /* Asegura el centrado exacto */
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #f1f5f9;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.roulette-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: #ff0055;
+    z-index: 10;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+#rouletteCanvas {
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    background: linear-gradient(135deg, #e94560, #d6336c);
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00fff5;
+    min-height: 30px;
 }
