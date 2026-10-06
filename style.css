@@ -8,15 +8,8 @@
 }
 
 body {
-    background-color: #f6f0ff;
-    background-image: 
-        linear-gradient(45deg, rgba(88, 28, 135, 0.05) 25%, transparent 25%), 
-        linear-gradient(-45deg, rgba(88, 28, 135, 0.05) 25%, transparent 25%), 
-        linear-gradient(45deg, transparent 75%, rgba(88, 28, 135, 0.05) 75%), 
-        linear-gradient(-45deg, transparent 75%, rgba(88, 28, 135, 0.05) 75%);
-    background-size: 30px 30px;
-    background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
-    color: #2e1a3d;
+    background-color: #0f172a;
+    color: #f8fafc;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -41,28 +34,11 @@ body {
 }
 
 .card {
-    background-color: #ffffff;
-    border-radius: 20px;
+    background-color: #1e293b;
+    border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 12px 30px -5px rgba(88, 28, 135, 0.2);
-    border: 3px solid #581c87;
-    position: relative;
-}
-
-.card::before {
-    content: '💜 Señor de los Milagros • Misk’i Kinwa 💜';
-    display: block;
-    background: linear-gradient(135deg, #581c87, #3b0764);
-    color: white;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #334155;
 }
 
 .wheel-section {
@@ -77,40 +53,30 @@ body {
     width: 320px;
     height: 320px;
     margin: 20px 0;
-    border-radius: 50%;
-    background-color: #690469; /* FONDO BLANCO SÓLIDO PARA EL CANVAS */
-    box-shadow: 0 0 0 10px #3f0281, 0 8px 25px rgba(88,28,135,0.25);
 }
 
 #wheelCanvas {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    background-color: #580658; /* ASEGURA FONDO BLANCO */
     transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
-}
-
-.style
-body{
-    background-imagen:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5uBZRhehLu0d9aWiMh9Qf10wNxXWiA12slkoOsVr3RiLzuVWToHZo1XKg&s=10)
 }
 
 .wheel-pointer {
     position: absolute;
-    top: -20px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 30px solid #581c87;
+    border-top: 25px solid #f43f5e;
     z-index: 10;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
 }
 
 .btn-spin {
-    background: linear-gradient(135deg, #581c87, #7e22ce);
+    background: linear-gradient(135deg, #f43f5e, #e11d48);
     color: white;
     border: none;
     padding: 14px 32px;
@@ -119,13 +85,13 @@ body{
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 15px rgba(88, 28, 135, 0.4);
+    box-shadow: 0 4px 14px rgba(244, 63, 94, 0.4);
     margin-top: 10px;
 }
 
 .btn-spin:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(88, 28, 135, 0.6);
+    box-shadow: 0 6px 20px rgba(244, 63, 94, 0.6);
 }
 
 .btn-spin:disabled {
@@ -139,13 +105,13 @@ body{
     margin-top: 15px;
     min-height: 33px;
     text-align: center;
-    color: #6b21a8;
+    color: #38bdf8;
 }
 
 h2 {
     font-size: 20px;
     margin-bottom: 16px;
-    color: #3b0764;
+    color: #f1f5f9;
 }
 
 .add-form {
@@ -156,23 +122,23 @@ h2 {
 
 .add-form input[type="text"] {
     flex: 1;
-    background-color: #faf5ff;
-    border: 1px solid #d8bfe0;
+    background-color: #0f172a;
+    border: 1px solid #475569;
     padding: 10px 14px;
     border-radius: 8px;
-    color: #2e1a3d;
+    color: white;
     font-size: 14px;
 }
 
 .add-form input[type="text"]:focus {
     outline: none;
-    border-color: #581c87;
+    border-color: #38bdf8;
 }
 
 .add-form input[type="color"] {
     appearance: none;
     -webkit-appearance: none;
-    border: 1px solid #d8bfe0;
+    border: 1px solid #475569;
     width: 42px;
     height: 42px;
     border-radius: 8px;
@@ -191,7 +157,7 @@ h2 {
 }
 
 .btn-add {
-    background-color: #7e22ce;
+    background-color: #0ea5e9;
     color: white;
     border: none;
     padding: 0 16px;
@@ -202,7 +168,7 @@ h2 {
 }
 
 .btn-add:hover {
-    background-color: #581c87;
+    background-color: #0284c7;
 }
 
 .options-list {
@@ -220,7 +186,7 @@ h2 {
 }
 
 .options-list::-webkit-scrollbar-thumb {
-    background-color: #d8bfe0;
+    background-color: #475569;
     border-radius: 3px;
 }
 
@@ -228,17 +194,16 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #faf5ff;
+    background-color: #0f172a;
     padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid #f3e8ff;
+    border: 1px solid #334155;
 }
 
 .option-info {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #2e1a3d;
 }
 
 .color-badge {
@@ -251,7 +216,7 @@ h2 {
 .btn-delete {
     background: none;
     border: none;
-    color: #9ca3af;
+    color: #94a3b8;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -261,14 +226,14 @@ h2 {
 }
 
 .btn-delete:hover {
-    color: #dc2626;
-    background-color: rgba(220, 38, 38, 0.1);
+    color: #f43f5e;
+    background-color: rgba(244, 63, 94, 0.1);
 }
 
 .history-section h3 {
     font-size: 16px;
     margin-bottom: 10px;
-    color: #581c87;
+    color: #94a3b8;
 }
 
 .history-list {
@@ -278,12 +243,10 @@ h2 {
 }
 
 .history-chip {
-    background-color: #faf5ff;
-    border: 1px solid #d8bfe0;
+    background-color: #0f172a;
+    border: 1px solid #334155;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 13px;
-    color: #581c87;
-    font-weight: 500;
+    color: #e2e8f0;
 }
-
